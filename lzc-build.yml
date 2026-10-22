@@ -1,0 +1,12 @@
+manifest: ./lzc-manifest.yml
+pkgout: ./dist
+icon: ./icon.png
+
+compose_override:
+  services:
+    peach:
+      security_opt:
+        - no-new-privileges:true
+      restart: unless-stopped
+      stop_grace_period: 75s
+      init: true

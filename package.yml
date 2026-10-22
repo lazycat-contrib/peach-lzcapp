@@ -1,0 +1,21 @@
+package: community.lazycat.app.peach
+version: 0.47.3
+name: Peach
+description: "Single-user, local-first personal media system for managing a private video collection"
+author: peach-mitao
+license: AGPL-3.0
+homepage: https://github.com/peach-mitao/peach
+min_os_version: 1.5.0
+
+permissions:
+  required:
+    - net.internet
+    - document.private
+
+locales:
+  zh:
+    name: "Peach 蜜桃"
+    description: "单用户、本地优先的个人媒体系统：本地硬盘、通过 CloudDrive2 挂载的网盘和关注的创作者，集中在一个地方浏览与播放"
+  en:
+    name: "Peach"
+    description: "Single-user, local-first personal media system for browsing and playing a private video collection"

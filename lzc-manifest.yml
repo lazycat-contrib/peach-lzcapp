@@ -1,0 +1,52 @@
+application:
+  subdomain: peach
+  background_task: true
+  multi_instance: false
+  # Mounts /dev/dri so AMD/Intel VAAPI hardware transcoding can be used.
+  # Peaches fall back to software transcoding when no render node is usable.
+  gpu_accel: true
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://peach:8900/
+
+services:
+  peach:
+    # upstream: longmeidao/peach:0.47.3
+    image: docker.1ms.run/longmeidao/peach:0.47.3@sha256:6abfc05debf3de20dd1231357678ddbfa2d537b2cf98ae6167bf7b0d070f8222
+    environment:
+      - TZ=Asia/Shanghai
+    binds:
+      # Config, SQLite database, credentials and image cache.
+      - /lzcapp/var/peach:/data
+      # Media library, mounted read-only: scanning and playback never need writes.
+      - /lzcapp/documents:/media:ro
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request; urllib.request.urlopen('http://127.0.0.1:8900/healthz?ready=1', timeout=3).read()
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+
+usage: |
+  Peach 蜜桃是单用户、本地优先的个人媒体系统：把本地硬盘、通过 CloudDrive2 挂载的网盘，
+  以及关注的创作者更新，集中放在一个地方浏览和播放。
+
+  首次使用：
+  1. 首次打开会生成配置与随机登录口令。口令可在应用数据目录中查看（也可执行容器内的
+     `peach token` 获取），用它在浏览器登录。
+  2. 在设置页的「媒体目录」中添加 `/media` 或其子目录（如 `/media/115`），
+     选择媒体来源与读取策略后保存，然后开始扫描。
+  3. 需要局域网内其他设备访问时，在设置中开启并设置访问密码。
+
+  数据：
+  - 应用数据（配置、SQLite 数据库、凭据、图片缓存）在应用的 var 目录中；
+  - 影片放在本应用文稿目录（documents），应用以只读方式读取，扫描与播放不修改原文件。
+
+  说明：上游标注 18+，仅供成年人管理自己的成人内容馆藏；仓库不含媒体或站点数据，
+  连接外部站点需自行拥有相应账号和访问权。
