@@ -10,11 +10,10 @@ application:
   upstreams:
     - location: /
       backend: http://peach:8900/
-
 services:
   peach:
-    # upstream: longmeidao/peach:0.47.3
-    image: docker.1ms.run/longmeidao/peach:0.47.3@sha256:6abfc05debf3de20dd1231357678ddbfa2d537b2cf98ae6167bf7b0d070f8222
+    # upstream: docker.io/longmeidao/peach:0.47.3
+    image: docker.1ms.run/longmeidao/peach:0.47.3
     environment:
       - TZ=Asia/Shanghai
     binds:
@@ -32,8 +31,7 @@ services:
       timeout: 5s
       retries: 3
       start_period: 60s
-
-usage: |
+usage: |-
   Peach 蜜桃是单用户、本地优先的个人媒体系统：把本地硬盘、通过 CloudDrive2 挂载的网盘，
   以及关注的创作者更新，集中放在一个地方浏览和播放。
 
