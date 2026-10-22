@@ -1,7 +1,9 @@
 application:
   subdomain: peach
   background_task: true
-  multi_instance: false
+  # Multi-instance: one container per user, so each user gets their own Peach
+  # instance and their own documents directory.
+  multi_instance: true
   # Mounts /dev/dri so AMD/Intel VAAPI hardware transcoding can be used.
   # Peaches fall back to software transcoding when no render node is usable.
   gpu_accel: true
@@ -20,7 +22,8 @@ services:
       # Config, SQLite database, credentials and image cache.
       - /lzcapp/var/peach:/data
       # Media library, mounted read-only: scanning and playback never need writes.
-      - /lzcapp/documents:/media:ro
+      # /lzcapp/documents requires the per-deployment UID subdirectory.
+      - /lzcapp/documents/{{ .S.DeployUID }}:/media:ro
     healthcheck:
       test:
         - CMD
