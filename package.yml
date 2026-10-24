@@ -1,17 +1,15 @@
 package: community.lazycat.app.peach
-version: 0.47.3
+version: 0.48.2
 name: Peach
 description: "Single-user, local-first personal media system for managing a private video collection"
 author: peach-mitao
 license: AGPL-3.0
 homepage: https://github.com/peach-mitao/peach
 min_os_version: 1.5.0
-
 permissions:
   required:
     - net.internet
     - document.private
-
 locales:
   zh:
     name: "Peach 蜜桃"

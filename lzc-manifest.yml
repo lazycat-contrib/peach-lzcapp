@@ -14,8 +14,8 @@ application:
       backend: http://peach:8900/
 services:
   peach:
-    # upstream: docker.io/longmeidao/peach:0.47.3
-    image: docker.1ms.run/longmeidao/peach:0.47.3
+    # upstream: docker.io/longmeidao/peach:0.48.2
+    image: docker.1ms.run/longmeidao/peach:0.48.2
     environment:
       - TZ=Asia/Shanghai
     binds:
