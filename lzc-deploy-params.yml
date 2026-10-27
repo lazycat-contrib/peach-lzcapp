@@ -1,0 +1,14 @@
+params:
+
+  - id: library_dir
+    type: string
+    name: "Media Library Directory"
+    description: "Path to external media library folder"
+    default_value: "Media"
+
+
+locales:
+  zh:
+    library_dir:
+      name: "影视库目录"
+      description: "外部影视库文件夹路径"
