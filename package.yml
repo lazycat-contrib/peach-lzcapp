@@ -12,7 +12,7 @@ permissions:
     - document.private
 locales:
   zh:
-    name: "Peach 蜜桃"
+    name: "蜜桃"
     description: "单用户、本地优先的个人媒体系统：本地硬盘、通过 CloudDrive2 挂载的网盘和关注的创作者，集中在一个地方浏览与播放"
   en:
     name: "Peach"
