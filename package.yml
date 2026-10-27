@@ -1,5 +1,5 @@
 package: community.lazycat.app.peach
-version: 0.49.1
+version: 0.50.0
 name: Peach
 description: "Single-user, local-first personal media system for managing a private video collection"
 author: peach-mitao
