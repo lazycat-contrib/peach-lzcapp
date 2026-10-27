@@ -16,6 +16,7 @@ services:
   peach:
     # upstream: docker.io/longmeidao/peach:0.50.0
     image: docker.1ms.run/longmeidao/peach:0.50.0
+    user: root
     environment:
       - TZ=Asia/Shanghai
     binds:
