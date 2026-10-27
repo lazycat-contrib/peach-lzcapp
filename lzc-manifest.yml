@@ -23,7 +23,7 @@ services:
       - /lzcapp/var/peach:/data
       # Media library, mounted read-only: scanning and playback never need writes.
       # /lzcapp/documents requires the per-deployment UID subdirectory.
-      - /lzcapp/documents/{{ .S.DeployUID }}:/media:ro
+      - /lzcapp/run/mnt/home/{{ .U.media_dir }}:/media
     healthcheck:
       test:
         - CMD
