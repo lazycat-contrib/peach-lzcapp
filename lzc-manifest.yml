@@ -18,6 +18,7 @@ services:
     image: docker.1ms.run/longmeidao/peach:0.50.0
     user: root
     environment:
+      - PEACH_BIND=${LAZYCAT_APP_DOMAIN}
       - TZ=Asia/Shanghai
     binds:
       # Config, SQLite database, credentials and image cache.
