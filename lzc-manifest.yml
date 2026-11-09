@@ -14,8 +14,8 @@ application:
       backend: http://peach:8900/
 services:
   peach:
-    # upstream: docker.io/longmeidao/peach:0.56.0
-    image: docker.1ms.run/longmeidao/peach:0.56.0
+    # upstream: docker.io/longmeidao/peach:0.57.0
+    image: docker.1ms.run/longmeidao/peach:0.57.0
     user: root
     environment:
       - PEACH_BIND=${LAZYCAT_APP_DOMAIN}
